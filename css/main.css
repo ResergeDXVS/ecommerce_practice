@@ -62,8 +62,11 @@ body {
   width: 100%;
 }
 .header .header__options {
-  font-size: 2rem;
+  font-size: 3rem;
   color: #4ca3ab;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 .banner {
@@ -115,13 +118,50 @@ body {
   background-color: #e5e6b8;
   border-color: #c6d4b8;
 }
+.products .products__item .products__images {
+  width: 100%;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+  display: block;
+}
+.products .products__item .products__structure {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .products .products__item .products__structure .products__name {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #4ca3ab;
 }
 .products .products__item .products__structure .products__prize {
   font-size: 1.25rem;
   color: #856a6a;
+}
+.products .products__item .products__structure .products__button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background-color: #4ca3ab;
+  color: rgb(240, 247, 255);
+  font-size: 1rem;
+  line-height: 1;
+  text-align: center;
+  border: none;
+  padding: 0.75rem 1rem;
+}
+.products .products__item .products__structure .products__button i, .products .products__item .products__structure .products__button p {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
 }
 
 .cart {
@@ -131,7 +171,7 @@ body {
   box-sizing: border-box;
   height: 100%;
   position: fixed;
-  right: 0;
+  right: -70%;
   top: 0;
   box-shadow: -19px -1px 22px -15px rgba(198, 212, 184, 0.7176470588);
 }
