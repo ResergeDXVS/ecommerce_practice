@@ -38,7 +38,7 @@
         </section>
 
         <section class="products">
-            <article class="card products__item">
+            <article class="card products__item" id="1001">
                 <img class="products__images" src="./img/playera_neon.png" alt="Playera Neon">
                 <div class="card-body products__structure">
                     <h3 class="card-title products__name">Playera Neon</h3>
@@ -103,25 +103,24 @@
             </article>
         </section>
         <section class="cart">
-            <h2 class="cart__title">CARRITO</h2>
-            <div class="cart__item">
-                <img src="./img/clothes/chamarra.png" alt="" class="cart__image">
-                <p class="cart__product">Chamarra Urbana</p>
-                <p class="cart__prize">$1499.00</p>
-                <i class="fi fi-sc-trash cart__button"></i>
+            <div class="cart__top">
+                <i class="fi fi-sc-shopping-cart"></i>
+                <h2 class="cart__title">CARRITO</h2>
+                <i class="fi fi-sc-cross"></i>
             </div>
-            <div class="cart__item">
-                <img src="./img/gorra.png" alt="" class="cart__image">
-                <p class="cart__product">Gorra Pintada</p>
-                <p class="cart__prize">$399.00</p>
-                <i class="fi fi-sc-trash cart__button"></i>
-            </div>
-            <div class="cart__item">
-                <img src="./img/playera_neon.png" alt="" class="cart__image">
-                <p class="cart__product">Playera Neon</p>
-                <p class="cart__prize">$699.00</p>
-                <i class="fi fi-sc-trash cart__button"></i>
-            </div>
+            <section class="cart__basket">
+                <div class="cart__item">
+                    <img src="./img/clothes/chamarra.png" alt="" class="cart__image">
+                    <p class="cart__product">Chamarra Urbana</p>
+                    <p class="cart__price">$1499.00</p>
+                    <input type="number" class="form-control cart__number" id="cantidad" name="cantidad" min="0" max="100" step="1">
+                    <p class="cart__total">$1499.00</p>
+                    <i class="fi fi-sc-trash cart__button"></i>
+                </div>
+            </section>
+            <section class="cart__pay">
+                <button type="button" class="btn cart__button">Pagar $0.00</button>
+            </section>
         </section>
     </main>
     <footer class="footer">
