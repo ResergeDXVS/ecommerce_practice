@@ -1,0 +1,82 @@
+.footer{
+    @include flexbox_column(flex-end,center);
+    margin-top: 1rem;
+    gap: px-to-rem(8);
+    background-color: $secondaryColor;
+    @include media_adjustments{
+        gap: px-to-rem(16);
+        padding: 1rem 0;
+    }
+    @include phone_adjustments{
+        gap: px-to-rem(16);
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+    .footer__data{
+        p{
+            @extend %normal__text;
+            color: $secondaryTextColor;
+            font-size: px-to-rem(12);
+            margin: 0;
+            padding: 0;
+            @include media_adjustments{
+                font-size: px-to-rem(16);
+            }
+            @include phone_adjustments{
+                font-size: px-to-rem(20);
+            }
+        }
+    }
+    .footer__social{
+        @include flexbox_row(center,center);
+        width: 100%;
+        height: auto;
+        padding: 0 ;
+        margin: 0;
+        box-sizing: border-box;
+        gap: px-to-rem(24);
+        @include media_adjustments{
+            padding: 8px;
+            gap:14px;
+        }
+        @include phone_adjustments{
+            padding: 16px;
+            gap:32px;
+        }
+        .nav-item{
+            .nav-link{
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                i{
+                    color: $secondaryTextColor;
+                    font-size: 2rem;
+                    line-height: 1;
+                    display: flex;
+                    align-items: center;
+                    font-size: px-to-rem(32);
+                }
+            }
+        }
+    }
+    .footer__page{
+        p{
+            @extend %normal__text;
+            color: $secondaryTextColor;
+            font-size: px-to-rem(12);
+            margin: 0;
+            padding: 0;
+            @include media_adjustments{
+                font-size: px-to-rem(16);
+            }
+            @include phone_adjustments{
+                font-size: px-to-rem(20);
+            }
+            a{
+                @extend %a_text_format;
+                color: $noteTextColor;
+            }
+        }
+    }
+}

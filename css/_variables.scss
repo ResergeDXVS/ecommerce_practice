@@ -1,0 +1,45 @@
+$primaryColor: #e5e6b8;
+$secondaryColor: #c6d4b8;
+$primaryTextColor: #4ca3ab;
+$secondaryTextColor: #856a6a;
+$noteTextColor: #9c325c;
+$whiteColor: rgb(240, 247, 255);
+
+$fontFamily:  "Lexend", Arial, Helvetica, sans-serif;
+
+$transition: all .25s ease-in;
+
+$normalText:2rem;
+$mediaText:1.8rem;
+$phoneText:1.6rem;
+
+%normal__text{
+    font-family: $fontFamily;
+    font-weight: 400;
+    font-style: normal;
+}
+
+%bold__text{
+    font-family: $fontFamily;
+    font-weight: 800;
+    font-style: normal;
+}
+
+%note__text{
+    font-family: $fontFamily;
+    font-weight: 100;
+    font-style: normal;
+}
+
+%h2__format{
+    @extend %bold__text;
+    color:$secondaryTextColor;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+}
+
+%a_text_format{
+    font-family: $fontFamily;
+    text-decoration: none;
+}

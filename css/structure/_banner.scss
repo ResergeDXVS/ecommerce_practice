@@ -1,0 +1,29 @@
+.banner{
+    width: 100%;
+    height: 35vh;
+    position: relative;
+    img {
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(45%);
+        object-position: 50% 45%;
+    }
+    .card-img-overlay{
+        @include flexbox_column(center,center);
+        gap: 8px;
+        .banner__title{
+            @extend %bold__text;
+            font-size: px-to-rem(72);
+            color: $primaryTextColor;
+        }
+        .banner__text{
+            @extend %bold__text;
+            font-size: px-to-rem(28);
+            color: $primaryTextColor;
+        }
+    }
+}

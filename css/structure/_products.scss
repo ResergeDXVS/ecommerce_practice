@@ -1,0 +1,30 @@
+.products{
+    width: 85%;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:1rem;
+    
+    .products__item{
+        cursor: pointer;
+        text-align: center;
+        background-color: $primaryColor;
+        border-color: $secondaryColor;
+        .products__structure{
+            .products__name{
+                @extend %bold__text;
+                font-size: px-to-rem(24);
+                color: $primaryTextColor;
+            }
+
+            .products__prize{
+                @extend %normal__text;
+                font-size: px-to-rem(20);
+                color: $secondaryTextColor;
+            }
+        }
+    }
+    
+}
