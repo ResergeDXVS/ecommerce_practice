@@ -29,9 +29,6 @@ class CartItem{
         this.total = (parseFloat(this.price) * parseInt(this.number)).toFixed(2);
     }
     
-    checkNumber(newNumber){
-        return newNumber>0;
-    }
 }
 
 cartButton.addEventListener("click", () =>{
@@ -160,6 +157,7 @@ const generateCartItem = (productCart) => {
                 deleteCartItem(parent,listCart,index);
             }
             checkPaymentButton(listCart,buttonCart);
+            updateBadge();
             
         }
     });
@@ -176,6 +174,7 @@ const generateCartItem = (productCart) => {
             deleteCartItem(parent,listCart,index);
         }
         checkPaymentButton(listCart,buttonCart);
+        updateBadge();
     })
 
     return cartItem;
@@ -193,6 +192,7 @@ const showCart = () => {
         });
     }
     checkPaymentButton(listCart,buttonCart);
+    updateBadge();
     
 }
 
@@ -237,16 +237,31 @@ productButtons.forEach(boton => {
         }
         console.log(data);
         editLocalStorage(data);
-
+        updateBadge();
 
     })
 });
 
 
 
+/*Actualizar Badge*/
+const updateBadge = () =>{
+    const badge = document.getElementById("cart__size");
+    let listCart = JSON.parse(localStorage.getItem("cartData")) || [];
+    listCart = listCart.map(item => new CartItem(item.id, item.imagen, item.nameProduct, item.price, item.number));
+    let total = 0; 
+    listCart.forEach(data => {
+        total += parseInt(data.number);
+    })
+    if (total==0){
+        badge.classList.add("invisible");
+    }else if (total>0 && total<=9){
+        badge.classList.remove("invisible");
+        badge.innerText = total;
+    }else{
+        badge.classList.remove("invisible");
+        badge.innerText = "+9";
+    }
 
-
-
-
-/*Almacenamiento de la información del carrito*/
-
+}
+updateBadge();

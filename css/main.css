@@ -69,11 +69,29 @@ body.body--wait {
   width: 100%;
 }
 .header .header__options {
+  position: relative;
+}
+.header .header__options i {
   font-size: 3rem;
   color: #4ca3ab;
   line-height: 1;
   display: flex;
   align-items: center;
+}
+.header .header__options #cart__size {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #9c325c;
+  color: rgb(240, 247, 255);
+  font-size: 0.875rem;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 .header #cart {
   cursor: pointer;
