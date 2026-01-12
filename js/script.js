@@ -10,7 +10,8 @@ const banner = document.querySelector(".banner");
 const header = document.querySelector(".header");
 const products = document.querySelector(".products");
 const footer = document.querySelector(".footer");
-let openMenus;
+let openMenus=false;
+let openCart=false;
 
 class CartItem{
     constructor(id, imagen, nameProduct, price, number){
@@ -34,58 +35,60 @@ class CartItem{
     
 }
 
-cartButton.addEventListener("click", () =>{
-    //Bool para revisar si el carrito esta abierto
-    openMenus = true;
-    //Mostrar carrito
-    cart.classList.add("cart--show");
-    //Oscurecer página
+const removeClasses = () =>{
+    body.classList.remove("body--wait");
+    header.classList.remove("header--wait");
+    products.classList.remove("products--wait");
+    footer.classList.remove("footer--wait");
+    banner.classList.remove("banner--wait");
+}
+
+const addClasses = () =>{
     body.classList.add("body--wait");
     header.classList.add("header--wait");
     products.classList.add("products--wait");
     footer.classList.add("footer--wait");
     banner.classList.add("banner--wait");
+}
+
+cartButton.addEventListener("click", () =>{
+    if(!openMenus){    //Bool para revisar si el carrito esta abierto
+        openCart = true;
+        //Mostrar carrito
+        cart.classList.add("cart--show");
+        showCart();
+    }
+    addClasses();
     
-    showCart();
 });
 
 crossButton.addEventListener("click", () =>{
-    //Bool para revisar si el carrito esta abierto
-    openMenus = false;
-    //Ocultar carrito
-    menu.classList.remove("menu--show");
-    //Devolver brillo a la página
-    body.classList.remove("body--wait");
-    header.classList.remove("header--wait");
-    products.classList.remove("products--wait");
-    footer.classList.remove("footer--wait");
-    banner.classList.remove("banner--wait");
+    if(!openMenus){
+        //Bool para revisar si el carrito esta abierto
+        openCart = false;
+        //Ocultar carrito 
+        cart.classList.remove("cart--show");
+    }
+    removeClasses();
 });
 
 menuButton.addEventListener("click", () =>{
-    //Bool para revisar si el carrito esta abierto
-    openMenus = true;
-    //Mostrar carrito
-    menu.classList.add("menu--show");
-    //Oscurecer página
-    body.classList.add("body--wait");
-    header.classList.add("header--wait");
-    products.classList.add("products--wait");
-    footer.classList.add("footer--wait");
-    banner.classList.add("banner--wait");
+    if(!openCart){    //Bool para revisar si el carrito esta abierto
+        openMenus = true;
+        //Mostrar carrito
+        menu.classList.add("menu--show");
+    }
+    addClasses();
+    
 });
 
 crossMenuButton.addEventListener("click", () =>{
-    //Bool para revisar si el carrito esta abierto
-    openMenus = false;
-    //Ocultar carrito
-    menu.classList.remove("menu--show");
-    //Devolver brillo a la página
-    body.classList.remove("body--wait");
-    header.classList.remove("header--wait");
-    products.classList.remove("products--wait");
-    footer.classList.remove("footer--wait");
-    banner.classList.remove("banner--wait");
+    if(!openCart){    //Bool para revisar si el carrito esta abierto
+        openMenus = false;
+        //Ocultar carrito
+        menu.classList.remove("menu--show");        
+    }
+    removeClasses();
 });
 
 
@@ -239,11 +242,12 @@ const calculateTotalPayment = (basket) =>{
 productItems.forEach(producto => {
     producto.addEventListener("mouseover", ()=> {
         const button = producto.querySelector(".products__button");
-        if (!openMenus){
+        if (openCart || openMenus){
+            producto.style.cursor = "default";
+        }else{
             producto.style.transform = "scale(1.05)";
             button.classList.remove("invisible");
-        }else{
-            producto.style.cursor = "default";
+            
         }
     })
 });
