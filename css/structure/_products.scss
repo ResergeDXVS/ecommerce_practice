@@ -6,7 +6,9 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
     gap:1rem;
-    
+    &.products--wait{
+        filter: brightness(0.5);
+    }
     .products__item{
         cursor: pointer;
         text-align: center;

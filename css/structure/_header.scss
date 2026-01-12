@@ -18,6 +18,12 @@ body{
     padding: 0;
     box-sizing: border-box;
     background-color: $whiteColor;
+
+    &.body--wait{
+        overflow: hidden;
+        background-color: rgb(83, 83, 83);
+    }
+    
 }
 .header{
     width: 100%;
@@ -26,6 +32,9 @@ body{
     background-color: $primaryColor;
     @include flexbox_row(space-between,center);
     box-sizing: border-box;
+    &.header--wait{
+        filter: brightness(0.5);
+    }
     .header__logo{
         @include flexbox_row(center,center);
         width: 120px;
@@ -41,5 +50,9 @@ body{
         line-height: 1;
         display: flex;
         align-items: center;
+        
+    }
+    #cart{
+        cursor: pointer;
     }
 }

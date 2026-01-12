@@ -2,6 +2,9 @@
     width: 100%;
     height: 35vh;
     position: relative;
+    &.banner--wait{
+        filter: brightness(0.5);
+    }
     img {
         position: relative;
         z-index: 0;

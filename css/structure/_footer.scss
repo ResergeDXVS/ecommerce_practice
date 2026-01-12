@@ -12,6 +12,9 @@
         padding-top: 1rem;
         padding-bottom: 2rem;
     }
+    &.footer--wait{
+        filter: brightness(0.5);
+    }
     .footer__data{
         p{
             @extend %normal__text;
