@@ -92,6 +92,18 @@ const editLocalStorage = (cartData) => {
     
 
 }
+const deleteCartItem = (parent,listCart,index) => {
+    parent.remove();
+    listCart.splice(index,1);
+    localStorage.setItem("cartData", JSON.stringify(listCart));
+}
+const checkPaymentButton = (listCart,buttonCart) => {
+    if (listCart.length>0){
+        calculateTotalPayment(listCart);
+    }else{
+        buttonCart.classList.add("invisible");
+    }
+}
 
 const generateCartItem = (productCart) => {
     const cartItem = document.createElement("div");
@@ -145,19 +157,26 @@ const generateCartItem = (productCart) => {
                 total.innerText = `$ ${checkCartItem.total}`;
                 localStorage.setItem("cartData", JSON.stringify(listCart));
             }else{
-                parent.remove();
-                listCart.splice(index,1);
-                localStorage.setItem("cartData", JSON.stringify(listCart));
+                deleteCartItem(parent,listCart,index);
             }
-            if (listCart.length>0){
-                calculateTotalPayment(listCart);
-            }else{
-                buttonCart.classList.add("invisible");
-            }
+            checkPaymentButton(listCart,buttonCart);
             
         }
     });
 
+    cartButton.addEventListener("click", (event) =>{
+        let listCart = JSON.parse(localStorage.getItem("cartData")) || [];
+        listCart = listCart.map(item => new CartItem(item.id, item.imagen, item.nameProduct, item.price, item.number));
+        const parent = event.target.parentNode;
+        const parentID = parent.getAttribute("id");
+        const checkCartItem = listCart.find(p => p.id === parentID);
+        const index = listCart.findIndex(p => p.id === parentID);
+        const buttonCart = document.querySelector(".cart__pay");
+        if (checkCartItem !== undefined){
+            deleteCartItem(parent,listCart,index);
+        }
+        checkPaymentButton(listCart,buttonCart);
+    })
 
     return cartItem;
 }
@@ -172,10 +191,8 @@ const showCart = () => {
         listCart.forEach(cart => {
             cartBasket.append(generateCartItem(cart));
         });
-        calculateTotalPayment(listCart);
-    }else{
-        buttonCart.classList.add("invisible");
     }
+    checkPaymentButton(listCart,buttonCart);
     
 }
 
