@@ -123,7 +123,7 @@ body.body--wait {
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  gap: 2rem;
 }
 .products.products--wait {
   filter: brightness(0.5);
@@ -133,6 +133,9 @@ body.body--wait {
   text-align: center;
   background-color: #e5e6b8;
   border-color: #c6d4b8;
+  transition: all 0.25s ease-in;
+  width: 100%;
+  transform-origin: center center;
 }
 .products .products__item .products__images {
   width: 100%;
@@ -173,11 +176,16 @@ body.body--wait {
   text-align: center;
   border: none;
   padding: 0.75rem 1rem;
+  transition: all 0.25s ease-in;
 }
 .products .products__item .products__structure .products__button i, .products .products__item .products__structure .products__button p {
   display: inline-flex;
   align-items: center;
   margin: 0;
+}
+.products .products__item .products__structure .products__button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.5);
 }
 
 .cart {
