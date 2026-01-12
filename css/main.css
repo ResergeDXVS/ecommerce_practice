@@ -4,7 +4,7 @@
   font-style: normal;
 }
 
-.cart .cart__basket .cart__item .cart__total, .cart .cart__basket .cart__item .cart__product, .cart .cart__top .cart__title, .products .products__item .products__structure .products__name, .banner .card-img-overlay .banner__text, .banner .card-img-overlay .banner__title {
+.menu .menu__options ul li a, .menu .menu__top .menu__title, .cart .cart__basket .cart__item .cart__total, .cart .cart__basket .cart__item .cart__product, .cart .cart__top .cart__title, .products .products__item .products__structure .products__name, .banner .card-img-overlay .banner__text, .banner .card-img-overlay .banner__title {
   font-family: "Lexend", Arial, Helvetica, sans-serif;
   font-weight: 800;
   font-style: normal;
@@ -70,6 +70,7 @@ body.body--wait {
 }
 .header .header__options {
   position: relative;
+  cursor: pointer;
 }
 .header .header__options i {
   font-size: 3rem;
@@ -92,9 +93,6 @@ body.body--wait {
   align-items: center;
   justify-content: center;
   z-index: 1;
-}
-.header #cart {
-  cursor: pointer;
 }
 
 .banner {
@@ -347,6 +345,73 @@ body.body--wait {
   background-color: #4ca3ab;
   box-sizing: border-box;
   font-size: 1.75rem;
+}
+
+.menu {
+  width: 30%;
+  background-color: #c6d4b8;
+  padding: 1rem;
+  box-sizing: border-box;
+  height: 100%;
+  position: fixed;
+  left: -50%;
+  top: 0;
+  box-shadow: 19px 1px 22px -15px rgba(198, 212, 184, 0.7176470588);
+  transition: all 0.25s ease-in;
+}
+.menu.menu--show {
+  left: 0;
+}
+.menu .menu__top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 1%;
+  height: 15%;
+}
+.menu .menu__top .menu__title {
+  width: 100%;
+  text-align: center;
+  color: #4ca3ab;
+  font-size: 2rem;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+.menu .menu__top > i {
+  font-size: 1.75rem;
+  color: #4ca3ab;
+}
+.menu .menu__top #cross__menu {
+  cursor: pointer;
+}
+.menu .menu__options {
+  width: 100%;
+  padding: 2% 1%;
+}
+.menu .menu__options ul {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  gap: 16px;
+}
+.menu .menu__options ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 2px solid #4ca3ab;
+}
+.menu .menu__options ul li a {
+  text-align: justify;
+  color: #4ca3ab;
+  font-size: 1.75rem;
+  text-decoration: none;
+  line-height: 1.5;
 }
 
 .footer {

@@ -1,13 +1,16 @@
 /*Abrir  Cart*/
 const cartButton = document.getElementById("cart");
+const menuButton = document.getElementById("home");
 const crossButton = document.getElementById("cross__cart");
+const crossMenuButton = document.getElementById("cross__menu");
 const body = document.getElementsByTagName("body")[0];
 const cart = document.querySelector(".cart");
+const menu = document.querySelector(".menu");
 const banner = document.querySelector(".banner");
 const header = document.querySelector(".header");
 const products = document.querySelector(".products");
 const footer = document.querySelector(".footer");
-let openCart;
+let openMenus;
 
 class CartItem{
     constructor(id, imagen, nameProduct, price, number){
@@ -33,7 +36,7 @@ class CartItem{
 
 cartButton.addEventListener("click", () =>{
     //Bool para revisar si el carrito esta abierto
-    openCart = true;
+    openMenus = true;
     //Mostrar carrito
     cart.classList.add("cart--show");
     //Oscurecer página
@@ -48,9 +51,9 @@ cartButton.addEventListener("click", () =>{
 
 crossButton.addEventListener("click", () =>{
     //Bool para revisar si el carrito esta abierto
-    openCart = false;
+    openMenus = false;
     //Ocultar carrito
-    cart.classList.remove("cart--show");
+    menu.classList.remove("menu--show");
     //Devolver brillo a la página
     body.classList.remove("body--wait");
     header.classList.remove("header--wait");
@@ -58,6 +61,33 @@ crossButton.addEventListener("click", () =>{
     footer.classList.remove("footer--wait");
     banner.classList.remove("banner--wait");
 });
+
+menuButton.addEventListener("click", () =>{
+    //Bool para revisar si el carrito esta abierto
+    openMenus = true;
+    //Mostrar carrito
+    menu.classList.add("menu--show");
+    //Oscurecer página
+    body.classList.add("body--wait");
+    header.classList.add("header--wait");
+    products.classList.add("products--wait");
+    footer.classList.add("footer--wait");
+    banner.classList.add("banner--wait");
+});
+
+crossMenuButton.addEventListener("click", () =>{
+    //Bool para revisar si el carrito esta abierto
+    openMenus = false;
+    //Ocultar carrito
+    menu.classList.remove("menu--show");
+    //Devolver brillo a la página
+    body.classList.remove("body--wait");
+    header.classList.remove("header--wait");
+    products.classList.remove("products--wait");
+    footer.classList.remove("footer--wait");
+    banner.classList.remove("banner--wait");
+});
+
 
 /* Manejo de la información del carrito */
 
@@ -209,7 +239,7 @@ const calculateTotalPayment = (basket) =>{
 productItems.forEach(producto => {
     producto.addEventListener("mouseover", ()=> {
         const button = producto.querySelector(".products__button");
-        if (!openCart){
+        if (!openMenus){
             producto.style.transform = "scale(1.05)";
             button.classList.remove("invisible");
         }else{

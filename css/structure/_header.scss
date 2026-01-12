@@ -46,6 +46,7 @@ body{
     }
     .header__options{
         position: relative;
+        cursor: pointer;
         i{
             font-size: px-to-rem(48);
             color: $primaryTextColor;
@@ -67,10 +68,7 @@ body{
             align-items: center;
             justify-content: center;
             z-index: 1;
-
+            
         }
-    }
-    #cart{
-        cursor: pointer;
     }
 }
