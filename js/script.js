@@ -242,12 +242,15 @@ const calculateTotalPayment = (basket) =>{
 productItems.forEach(producto => {
     producto.addEventListener("mouseover", ()=> {
         const button = producto.querySelector(".products__button");
-        if (openCart || openMenus){
-            producto.style.cursor = "default";
+        if(window.innerWidth>=1200){
+            if (openCart || openMenus){
+                producto.style.cursor = "default";
+            }else{
+                producto.style.transform = "scale(1.05)";
+                button.classList.remove("invisible");
+            }
         }else{
-            producto.style.transform = "scale(1.05)";
-            button.classList.remove("invisible");
-            
+
         }
     })
 });
@@ -255,8 +258,10 @@ productItems.forEach(producto => {
 productItems.forEach(producto => {
     producto.addEventListener("mouseleave", ()=> {
         const button = producto.querySelector(".products__button");
-        producto.style.transform = "scale(1)";
-        button.classList.add("invisible");
+        if(window.innerWidth>=1200){
+            producto.style.transform = "scale(1)";
+            button.classList.add("invisible");
+        }
     });
 });
 
@@ -298,4 +303,21 @@ const updateBadge = () =>{
     }
 
 }
+
+const toggleButtons = () => {
+    const buttons = document.querySelectorAll(".products__button");
+    if (window.innerWidth < 1200) {
+        buttons.forEach(boton => boton.classList.remove("invisible"));
+    }else{
+        buttons.forEach(boton => boton.classList.add("invisible"));
+    }
+}
+
+// Ejecutar al cargar
+toggleButtons();
+
+// Ejecutar al cambiar tamaño
+window.addEventListener("resize", toggleButtons);
+
+
 updateBadge();

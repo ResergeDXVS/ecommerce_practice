@@ -9,6 +9,15 @@
     top: 0;
     box-shadow: 19px 1px 22px -15px #c6d4b8b7;
     transition: $transition;
+    @include media_adjustments{
+        width: 50%;
+        left: -60%;
+    }
+    @include phone_adjustments{
+        width: 100%;
+        box-shadow: none;
+        left: -110%;
+    }
     &.menu--show{
         left: 0;
     }
@@ -16,6 +25,12 @@
         @include flexbox_row(center,center);
         padding: 2% 1%;
         height: 15%;
+        @include media_adjustments{
+            padding: 4%;
+        }
+        @include phone_adjustments{
+            padding: 4%;
+        }
         .menu__title{
             width: 100%;
             @extend %bold__text;
@@ -24,19 +39,41 @@
             font-size: px-to-rem(32);
             padding: 20px 0;
             box-sizing: border-box;
-            
+            @include media_adjustments{
+                font-size: px-to-rem(38);
+            }
+            @include phone_adjustments{
+                font-size: px-to-rem(42);
+            }
         }   
         >i{
             font-size: px-to-rem(28);
             color: $primaryTextColor;
+            @include media_adjustments{
+                font-size: px-to-rem(34);
+            }
+            @include phone_adjustments{
+                font-size: px-to-rem(40);
+            }
         }
         #cross__menu{
             cursor: pointer;
+            transition: $transition;
+            &:hover{
+                filter: brightness(115%);
+                transform: scale(1.25);
+            }
         }
     }
     .menu__options{
         width: 100%;
         padding: 2% 1%;
+        @include media_adjustments{
+            padding: 4%;
+        }
+        @include phone_adjustments{
+            padding: 4%;
+        }
         ul{
             box-sizing: border-box;
             @include flexbox_column(flex-start,center);
@@ -53,6 +90,20 @@
                     font-size: px-to-rem(28);
                     text-decoration: none;
                     line-height: 1.5;
+                    transition: $transition;
+                    @include media_adjustments{
+                        font-size: px-to-rem(32);
+
+                    }
+                    @include phone_adjustments{
+                        font-size: px-to-rem(36);
+
+                    }
+
+                    &:hover{
+                        filter: brightness(115%);
+                        transform: scale(1.25);
+                    }
                 }
             }
         }

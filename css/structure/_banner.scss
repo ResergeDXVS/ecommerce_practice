@@ -2,6 +2,12 @@
     width: 100%;
     height: 35vh;
     position: relative;
+    @include media_adjustments{
+        height: 28vh;
+    }
+    @include phone_adjustments{
+        height: 21vh;
+    }
     &.banner--wait{
         filter: brightness(0.5);
     }
@@ -22,11 +28,23 @@
             @extend %bold__text;
             font-size: px-to-rem(72);
             color: $primaryTextColor;
+            @include media_adjustments{
+                font-size: px-to-rem(64);
+            }
+            @include phone_adjustments{
+                font-size: px-to-rem(56);
+            }
         }
         .banner__text{
             @extend %bold__text;
             font-size: px-to-rem(28);
             color: $primaryTextColor;
+            @include media_adjustments{
+                font-size: px-to-rem(24);
+            }
+            @include phone_adjustments{
+                font-size: px-to-rem(20);
+            }
         }
     }
 }
