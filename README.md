@@ -1,4 +1,4 @@
-# 🛍️ VivaRopa - Ecommerce Practice
+# 🛍️ VivaRopa- HTML, CSS and JS Project
 
 ## 📖 Description
 A practice e-commerce project created to exercise a front-end workflow with HTML, Sass and JavaScript. It is a static web page that puts into practice the core building blocks of an online store interface, without frameworks or build tools required to run it.
